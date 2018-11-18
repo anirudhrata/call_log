@@ -48,13 +48,8 @@ public class CallLogPlugin implements MethodCallHandler, PluginRegistry.RequestP
 
         request = c;
         result = r;
-
-        if (PackageManager.PERMISSION_GRANTED == registrar.activity().checkSelfPermission(Manifest.permission.READ_CALL_LOG)) {
-            handleCall();
-        } else {
-            String[] perm = {Manifest.permission.READ_CALL_LOG};
-            registrar.activity().requestPermissions(perm, 0);
-        }
+        handleCall();
+        
     }
 
     @Override
